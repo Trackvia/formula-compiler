@@ -11,7 +11,7 @@ Input files are composed of two parts, the header and the body. The header is wh
 
 * The header is defined by `**header**`
 * The body is defined by `**body**`
-* A new macro is defined by `macro: <macro name>` Followed by text that is tabbed out. The syntax is similar to python. Hard tabs and soft tabs will both work.
+* A new macro is defined by `macro: <macro name>` Followed by text that is tabbed out. The syntax is similar to python. Hard tabs and soft tabs will both work. Macros can be alphanumeric and use underscores
 * Comments are any line that starts with `#`
 * To reference a macro in the body use `$$<macro name>`
 
