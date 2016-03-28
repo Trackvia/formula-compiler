@@ -1,0 +1,1 @@
+java -cp ./formula-compiler-0.0.1-SNAPSHOT.jar com.xvia.nexgen.formulaCompiler.FormulaCompiler $1 $2
