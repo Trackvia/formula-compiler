@@ -153,9 +153,9 @@ public class FormulaCompiler {
 			macroName = line.substring( macroPrefixIndex + Constants.MACRO_PREFIX.length());
 			macroName = macroName.trim();
 			//is there anything left?
-			if(macroName.indexOf(" ") != -1){
-				int indexOfSpace = macroName.indexOf(" ");
-				macroName = macroName.substring(0, indexOfSpace);
+			Integer indexOfIllegalCharacter = findFirstIllegalCharacter(macroName);
+			if(indexOfIllegalCharacter != null){
+				macroName = macroName.substring(0, indexOfIllegalCharacter);
 			} 
 			
 			if(!macroMap.containsKey(macroName)){
@@ -168,6 +168,21 @@ public class FormulaCompiler {
 		}
 		
 		fileWriter.println(line);
+	}
+	
+	private Integer findFirstIllegalCharacter(String str){
+		Integer lowestIndex = null;
+		for(String illegal : Constants.ILLEGAL_CHARACTERS){
+			int index = str.indexOf(illegal);
+			if(index == -1){
+				continue;
+			}
+			if(lowestIndex == null || index < lowestIndex){
+				lowestIndex = index;
+			}
+		}
+		
+		return lowestIndex;
 	}
 	
 	/**
