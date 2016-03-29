@@ -16,6 +16,8 @@ Input files are composed of two parts, the header and the body. The header is wh
 * To reference a macro in the body use `$$<macro name>`
 
 ###Example file
+
+This input:
 ```
 **header**
 
@@ -31,4 +33,11 @@ macro: sumOfChildCost
 # If any child is marked as selected, then return the total cost
 # else return a cost of zero
 if($$isAnyChildSelected, $$sumOfChildCost, 0)
+```
+Will result in this output:
+
+```
+if(   contains("Complete", childconcatenate({link to child}.{child table}.{selected}))
+,    sum({link to child}.{child table}.{cost})
+, 0)
 ```
