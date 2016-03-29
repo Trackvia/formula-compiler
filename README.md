@@ -1,6 +1,6 @@
 # formula-compiler
 
-This project hosts our super simple command line compiler. It's purpose is to make formula creation a simplier process
+This project is our super simple command line compiler for formulas. It's purpose is to make formula creation a simplier process
 
 ## Usage
 `fcompile <input file> <output file>`
